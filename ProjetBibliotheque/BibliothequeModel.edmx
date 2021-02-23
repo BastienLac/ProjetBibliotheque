@@ -17,11 +17,11 @@
             <PropertyRef Name="idLivre" />
           </Key>
           <Property Name="idLivre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titre" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="auteur" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="auteur" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="genre" Type="int" Nullable="false" />
           <Property Name="theme" Type="int" Nullable="false" />
-          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="quantite" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="reserver">
@@ -31,15 +31,15 @@
           </Key>
           <Property Name="idLivre" Type="int" Nullable="false" />
           <Property Name="idUtilisateur" Type="int" Nullable="false" />
-          <Property Name="dateReserve" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="dateRemise" Type="date" Nullable="false" />
+          <Property Name="dateReserve" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="dateRemise" Type="datetime" Precision="0" Nullable="false" />
         </EntityType>
         <EntityType Name="themelivre">
           <Key>
             <PropertyRef Name="idTheme" />
           </Key>
           <Property Name="idTheme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="libelleTheme" Type="int" Nullable="false" />
+          <Property Name="libelleTheme" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="utilisateur">
           <Key>
@@ -140,11 +140,11 @@
             <PropertyRef Name="idLivre" />
           </Key>
           <Property Name="idLivre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="auteur" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="titre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="auteur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="genre" Type="Int32" Nullable="false" />
           <Property Name="theme" Type="Int32" Nullable="false" />
-          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="quantite" Type="Int32" Nullable="false" />
           <NavigationProperty Name="genrelivre" Relationship="Self.livre_ibfk_2" FromRole="livre" ToRole="genrelivre" />
           <NavigationProperty Name="themelivre" Relationship="Self.livre_ibfk_1" FromRole="livre" ToRole="themelivre" />
@@ -157,7 +157,7 @@
           </Key>
           <Property Name="idLivre" Type="Int32" Nullable="false" />
           <Property Name="idUtilisateur" Type="Int32" Nullable="false" />
-          <Property Name="dateReserve" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateReserve" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="dateRemise" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="livre" Relationship="Self.reserver_ibfk_2" FromRole="reserver" ToRole="livre" />
           <NavigationProperty Name="utilisateur" Relationship="Self.reserver_ibfk_1" FromRole="reserver" ToRole="utilisateur" />
@@ -167,7 +167,7 @@
             <PropertyRef Name="idTheme" />
           </Key>
           <Property Name="idTheme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="libelleTheme" Type="Int32" Nullable="false" />
+          <Property Name="libelleTheme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="livre" Relationship="Self.livre_ibfk_1" FromRole="themelivre" ToRole="livre" />
         </EntityType>
         <EntityType Name="utilisateur">

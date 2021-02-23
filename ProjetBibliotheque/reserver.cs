@@ -16,7 +16,7 @@ namespace ProjetBibliotheque
     {
         public int idLivre { get; set; }
         public int idUtilisateur { get; set; }
-        public System.DateTime dateReserve { get; set; }
+        public Nullable<System.DateTime> dateReserve { get; set; }
         public System.DateTime dateRemise { get; set; }
     
         public virtual livre livre { get; set; }

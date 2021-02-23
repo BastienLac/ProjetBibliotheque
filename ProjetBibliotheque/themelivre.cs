@@ -21,7 +21,7 @@ namespace ProjetBibliotheque
         }
     
         public int idTheme { get; set; }
-        public int libelleTheme { get; set; }
+        public string libelleTheme { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<livre> livre { get; set; }

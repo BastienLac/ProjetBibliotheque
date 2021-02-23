@@ -115,10 +115,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BibliothequeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BibliothequeModel.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="BibliothequeModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BibliothequeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BibliothequeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BibliothequeModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="frmAdmin.xaml.cs">
       <DependentUpon>frmAdmin.xaml</DependentUpon>
@@ -164,16 +174,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BibliothequeModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BibliothequeModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BibliothequeModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BibliothequeModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -214,19 +214,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="BibliothequeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BibliothequeModel.Context.cs</LastGenOutput>
       <DependentUpon>BibliothequeModel.edmx</DependentUpon>
+      <LastGenOutput>BibliothequeModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="BibliothequeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BibliothequeModel.edmx</DependentUpon>
       <LastGenOutput>BibliothequeModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
