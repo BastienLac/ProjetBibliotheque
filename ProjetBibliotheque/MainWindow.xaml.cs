@@ -55,7 +55,7 @@ namespace ProjetBibliotheque
                     {
                         if (monUtilisateur.statut == "admin")
                         {
-                            frmAdmin frm = new frmAdmin(gst);
+                            frmAdmin frm = new frmAdmin(gst, monUtilisateur);
                             frm.Show();
                         }
                         if (monUtilisateur.statut == "client")

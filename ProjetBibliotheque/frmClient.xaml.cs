@@ -40,12 +40,13 @@ namespace ProjetBibliotheque
             reserver laReservation = gst.reserver.ToList().Find(re => re.utilisateur == monUtilisateur && re.livre == leLivre);
             if(laReservation == null)
             {
+                leLivre.quantite--;
                 reserver maReservation = new reserver()
                 {
                     livre = (lstLivres.SelectedItem as livre),
                     utilisateur = monUtilisateur,
-                    dateRemise = DateTime.Now,
-                    dateReserve = DateTime.Now.AddDays(14)
+                    dateReserve = DateTime.Now,
+                    dateRemise = DateTime.Now.AddDays(14)
                 };
                 gst.reserver.Add(maReservation);
                 gst.SaveChanges();
@@ -60,19 +61,28 @@ namespace ProjetBibliotheque
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
-            livre leLivre = gst.livre.ToList().Find(li => li.idLivre == (lstLivres.SelectedItem as livre).idLivre);
-            genrelivre leGenre = leLivre.genrelivre;
-            themelivre leTheme = leLivre.themelivre;
-            MessageBox.Show("Nom: " + leLivre.titre + 
-                "\r\nAuteur : " + leLivre.auteur +
-                "\r\nGenre : " + leGenre.libelleGenre +
-                "\r\nTheme : " + leTheme.libelleTheme +
-                "\r\nQuantité disponible: " + leLivre.quantite, "Informations du livre", MessageBoxButton.OK);
+            if(lstLivres.SelectedItem != null)
+            {
+                livre leLivre = gst.livre.ToList().Find(li => li.idLivre == (lstLivres.SelectedItem as livre).idLivre);
+                genrelivre leGenre = leLivre.genrelivre;
+                themelivre leTheme = leLivre.themelivre;
+                MessageBox.Show("Nom: " + leLivre.titre +
+                    "\r\nAuteur : " + leLivre.auteur +
+                    "\r\nGenre : " + leGenre.libelleGenre +
+                    "\r\nTheme : " + leTheme.libelleTheme +
+                    "\r\nQuantité disponible: " + leLivre.quantite, "Informations du livre", MessageBoxButton.OK);
+            }
         }
 
         private void btnProfil_Click(object sender, RoutedEventArgs e)
         {
+            frmProfil frm = new frmProfil(gst, monUtilisateur);
+            frm.Show();
+        }
 
+        private void btnDeco_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

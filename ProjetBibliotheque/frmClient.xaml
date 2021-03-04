@@ -30,5 +30,6 @@
         </ListBox>
         <Button Name="btnReserver" Content="Reserver" Grid.Row="3" HorizontalAlignment="Center" Width="100" Height="50" Click="btnReserver_Click"></Button>
         <Button Name="btnDetail" Content="Détails du livre" Grid.Row="3" HorizontalAlignment="Right" Width="100" Height="50" Click="btnDetail_Click"></Button>
+        <Button Name="btnDeco" Click="btnDeco_Click" Content="Se deconnecter" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="20" Grid.Row="3"></Button>
     </Grid>
 </Window>

@@ -139,6 +139,9 @@
     <Compile Include="frmInscription.xaml.cs">
       <DependentUpon>frmInscription.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmProfil.xaml.cs">
+      <DependentUpon>frmProfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="genrelivre.cs">
       <DependentUpon>BibliothequeModel.tt</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frmInscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmProfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,7 +234,9 @@
       <DependentUpon>BibliothequeModel.edmx</DependentUpon>
       <LastGenOutput>BibliothequeModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Retard.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
